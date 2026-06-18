@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { TouchableOpacity, View, Text, StyleSheet, AppState } from 'react-native'
 import { router } from 'expo-router'
-import { saveSession } from '../utils/storage'
+import { saveSession } from '../../utils/storage'
 
 export default function BeginBoredomScreen() {
   const [seconds, setSeconds] = useState(0)

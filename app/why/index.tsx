@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { router } from 'expo-router'
-import { PHILOSOPHY } from '../utils/philosophy'
+import { PHILOSOPHY } from '../../utils/philosophy'
 
 export default function WhyBoredomScreen() {
   return (

@@ -22,8 +22,7 @@
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png",
-      "basePath": "/EmbraceBoredom",
-      "publicPath": "/EmbraceBoredom/",
+      "baseUrl": "/EmbraceBoredom",
       "bundler": "metro"
     },
     "router": {

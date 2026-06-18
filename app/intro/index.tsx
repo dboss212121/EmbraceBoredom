@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native'
 import { router } from 'expo-router'
-import { PHILOSOPHY } from '../utils/philosophy'
+import { PHILOSOPHY } from '../../utils/philosophy'
 
 // Put your intro lines here
 const MESSAGES = [

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import { router } from 'expo-router'
-import ProgressChart from '../components/ProgressChart'
-import { getDailyStats, DailyStat } from '../utils/storage'
+import ProgressChart from '../../components/ProgressChart'
+import { getDailyStats, DailyStat } from '../../utils/storage'
 
 export default function ProgressScreen() {
   const [dailyHistory, setDailyHistory] = useState<DailyStat[]>([])
