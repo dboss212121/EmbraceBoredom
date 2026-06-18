@@ -22,7 +22,12 @@
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png",
-      "basePath": "/EmbraceBoredom"
+      "basePath": "/EmbraceBoredom",
+      "publicPath": "/EmbraceBoredom/",
+      "bundler": "metro"
+    },
+    "router": {
+      "static": false
     },
     "plugins": [
       "expo-router",
@@ -41,6 +46,5 @@
       "typedRoutes": true,
       "reactCompiler": true
     }
-  },
-  "homepage": "https://dboss212121.github.io/EmbraceBoredom"
+  }
 }
