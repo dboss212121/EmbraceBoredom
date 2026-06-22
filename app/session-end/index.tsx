@@ -1,17 +1,22 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { useLocalSearchParams, router } from 'expo-router'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RouteProp } from '@react-navigation/native'
+import type { RootStackParamList } from '../../App'
 import { useEffect } from 'react'
 
 export default function SessionEndScreen() {
-  const { duration } = useLocalSearchParams()
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+  const route = useRoute<RouteProp<RootStackParamList, 'SessionEnd'>>()
+  const { duration } = route.params
 
   useEffect(() => {
     let id = setTimeout(() => {}, 0)
     while (id--) clearTimeout(id)
   }, [])
 
-  const goHome = () => router.replace('/main-menu')
-  const goShare = () => router.push('/share')
+  const goHome = () => navigation.replace('MainMenu')
+  const goShare = () => navigation.navigate('Share')
 
   return (
     <TouchableOpacity style={styles.container} onPress={goHome} activeOpacity={1}>

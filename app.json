@@ -20,16 +20,14 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "static",
+      "output": "single",
       "favicon": "./assets/images/favicon.png",
-      "baseUrl": "/EmbraceBoredom",
+      "basePath": "/EmbraceBoredom",
+      "publicPath": "/EmbraceBoredom/",
+
       "bundler": "metro"
     },
-    "router": {
-      "static": false
-    },
     "plugins": [
-      "expo-router",
       [
         "expo-splash-screen",
         {
@@ -40,10 +38,6 @@
           }
         }
       ]
-    ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
-    }
+    ]
   }
 }

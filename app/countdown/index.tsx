@@ -1,13 +1,16 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { router } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RootStackParamList } from '../../App'
 import { useEffect, useState } from 'react'
 
 export default function CountdownScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
   const [count, setCount] = useState(3)
 
   useEffect(() => {
     if (count === 0) {
-      router.push('/boredom')
+      navigation.replace('Boredom')
       return
     }
 

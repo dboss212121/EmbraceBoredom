@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import { router } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RootStackParamList } from '../../App'
 import ProgressChart from '../../components/ProgressChart'
 import { getDailyStats, DailyStat } from '../../utils/storage'
 
 export default function ProgressScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
   const [dailyHistory, setDailyHistory] = useState<DailyStat[]>([])
 
   // Load the calculated daily statistics when the screen mounts
@@ -55,7 +58,7 @@ export default function ProgressScreen() {
         )}
       </View>
 
-      <TouchableOpacity style={styles.secondaryButton} onPress={() => router.push('/main-menu')}>
+      <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate('MainMenu')}>
         <Text style={styles.secondaryText}>Back to Menu</Text>
       </TouchableOpacity>
     </ScrollView>

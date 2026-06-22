@@ -1,10 +1,13 @@
 import { View, StyleSheet } from 'react-native'
-import { router } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RootStackParamList } from '../../App'
 import { useEffect } from 'react'
 import TimerDisplay from '../../components/TimerDisplay'
 import { useBoredomTimer } from '../../hooks/useBoredomTimer'
 
 export default function BoredomModeScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
   const { seconds, start, stop } = useBoredomTimer()
 
   useEffect(() => {
@@ -14,9 +17,9 @@ export default function BoredomModeScreen() {
 
   useEffect(() => {
     if (seconds >= 10) {
-      router.push('/session-end')
+      navigation.replace('SessionEnd', { duration: seconds.toString() })
     }
-  }, [seconds])
+  }, [seconds, navigation])
 
   return (
     <View style={styles.container}>

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native'
-import { router } from 'expo-router'
+import { StyleSheet, TouchableOpacity, Animated } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RootStackParamList } from '../../App'
 import { PHILOSOPHY } from '../../utils/philosophy'
 
 // Put your intro lines here
@@ -11,6 +13,7 @@ const MESSAGES = [
 ]
 
 export default function IntroSequenceScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
   const [index, setIndex] = useState(0)
   const fadeAnim = useRef(new Animated.Value(0)).current
 
@@ -34,7 +37,7 @@ export default function IntroSequenceScreen() {
       if (index < MESSAGES.length - 1) {
         setIndex(index + 1)
       } else {
-        router.replace('/main-menu')
+        navigation.replace('MainMenu')
       }
     })
   }

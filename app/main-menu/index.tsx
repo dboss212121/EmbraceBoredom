@@ -1,20 +1,24 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { router } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RootStackParamList } from '../../App'
 
 export default function MainMenuScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Embrace Boredom</Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/begin')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Begin')}>
         <Text style={styles.buttonText}>Begin</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/why')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Why')}>
         <Text style={styles.buttonText}>Why Boredom?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/progress')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Progress')}>
         <Text style={styles.buttonText}>Your Progress</Text>
       </TouchableOpacity>
     </View>

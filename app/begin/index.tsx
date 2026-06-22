@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { TouchableOpacity, View, Text, StyleSheet, AppState } from 'react-native'
-import { router } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RootStackParamList } from '../../App'
 import { saveSession } from '../../utils/storage'
 
 export default function BeginBoredomScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
   const [seconds, setSeconds] = useState(0)
   const [started, setStarted] = useState(false)
 
@@ -59,10 +62,7 @@ export default function BeginBoredomScreen() {
 
     await saveSession(finalSeconds)
 
-    router.replace({
-      pathname: '/session-end',
-      params: { duration: finalSeconds.toString() },
-    })
+    navigation.replace('SessionEnd', { duration: finalSeconds.toString() })
   }
 
   return (

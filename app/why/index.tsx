@@ -1,14 +1,18 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { router } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import type { RootStackParamList } from '../../App'
 import { PHILOSOPHY } from '../../utils/philosophy'
 
 export default function WhyBoredomScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Why Boredom?</Text>
       <Text style={styles.body}>{PHILOSOPHY.why}</Text>
 
-      <TouchableOpacity style={styles.secondaryButton} onPress={() => router.push('/main-menu')}>
+      <TouchableOpacity style={styles.secondaryButton} onPress={() => navigation.navigate('MainMenu')}>
         <Text style={styles.secondaryText}>Back to Menu</Text>
       </TouchableOpacity>
     </View>
